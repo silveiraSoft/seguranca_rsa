@@ -1,6 +1,5 @@
 const btnAcessar = document.querySelector('#acessar');
 const loginAjaxJs = async (senhaEncriptada) => {
-    //console.log("Dado enciptado: " + senhaEncriptada);
     try {
         let formData = new FormData();
         formData.append('dadoEncriptado', senhaEncriptada);
