@@ -18,7 +18,6 @@ function criarChaveJSPHP()
 	echo "<br>Criando chave JS e PHP<br>";
 	$chavePhp = obterChavePHP();
 	echo "chavePhp:" . $chavePhp . "<br>";
-
 	if (isset($chavePhp)) {
 ?>
 		<script>
@@ -76,7 +75,6 @@ function encriptar(string $texto): string
 		if ($l > 255) {
 			$l -= 256;
 		}
-		//var_dump($l);
 		//echo "i: " . $i . " | " . "l: " . $l . " carater: " . $l . "<br>";
 		$mensx .= (chr($l));
 		//echo $mensx . "<br>";
@@ -88,12 +86,11 @@ function encriptar(string $texto): string
 }
 
 /**
- * @param texto -> string com a lista dos código Ascci de cada caracter do texto já criptografado e separado por virgula.
+ * @param $texto -> string com a lista dos código Ascci de cada caracter do texto já criptografado e separado por virgula.
  */
 
 function descriptar(string $texto): string
 {
-	//return $texto;
 	if (!is_string($texto) || empty($texto)) {
 		return '';
 	}
@@ -119,8 +116,6 @@ function descriptar(string $texto): string
 		if ($l < 0) {
 			$l += 256;
 		}
-
-		//return $l;
 		//echo "i: " . $i . " | " . "l: " . $l . " carater: " . chr($l) . "<br>";
 		$mensx .= (chr($l));
 	}
@@ -131,8 +126,6 @@ function encriptar1(string $texto): string
 {
 	$chavePhp = obterChavePHP();
 	$mensx = '';
-	$l;
-	$i;
 	$j = 0;
 	//ch = "assbdFbdpdPdpfPdAAdpeoseslsQQEcDDldiVVkadiedkdkLLnm";
 	$ch = $chavePhp;
@@ -147,8 +140,7 @@ function encriptar1(string $texto): string
 		if ($l > 255) {
 			$l -= 256;
 		}
-		var_dump($l);
-		echo "i: " . $i . " | " . "l: " . $l . " carater: " . chr($l) . "<br>";
+		//echo "i: " . $i . " | " . "l: " . $l . " carater: " . chr($l) . "<br>";
 		$mensx .= (chr($l));
 		echo $mensx . "<br>";
 		//$mensx += unichr((int)$l);
@@ -160,11 +152,8 @@ function descriptar1(string $texto): string
 {
 	$chavePhp = obterChavePHP();
 	$mensx = '';
-	$l;
-	$i;
 	$j = 0;
 	$ch = $chavePhp;
-	//return $texto;
 	//ch = "assbdFbdpdPdpfPdAAdpeoseslsQQEcDDldiVVkadiedkdkLLnm";
 	$lchavePhp = strlen($chavePhp);
 	$ldado = strlen($texto);
