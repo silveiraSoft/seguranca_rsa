@@ -13,7 +13,7 @@ const loginAjaxJs = async (senhaEncriptada) => {
             //body: JSON.stringify(objectJson)
         };
         console.log("Senha encriptada enviada ao php nos dados da requisição AJAX: " + senhaEncriptada);
-        const resPost = await fetch('login_ajax.php', myInit);
+        const resPost = await fetch('loginAjax.php', myInit);
         const post = await resPost.json();
         console.log("Resposta Ajax-> " + post);
     } catch (erro) {

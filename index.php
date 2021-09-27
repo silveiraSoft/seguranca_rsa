@@ -21,10 +21,10 @@ require_once __DIR__ . "/enc/encriptar.php";
 <body>
     <div>
         <?php
-        $result = obterChavePrivadaRSA();
+        $result = obterChavePrivadaRsa();
         $teste = 1;
         extract($result ?? []);
-        require_once 'view.login.php';
+        require_once 'viewLogin.php';
         ?>
     </div> 
 

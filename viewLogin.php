@@ -1,5 +1,5 @@
 <script>
-    var rsa = new RSAKey();
+    const rsa = new RSAKey();
     rsa.setPublic('<?php echo to_hex($detalles["rsa"]["n"]) ?>', '<?php echo to_hex($detalles["rsa"]["e"]) ?>');
 </script>
 <div>
