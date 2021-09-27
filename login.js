@@ -1,17 +1,22 @@
 const btnAcessar = document.querySelector('#acessar');
 const loginAjaxJs = async (senhaEncriptada) => {
+    //console.log("Dado enciptado: " + senhaEncriptada);
     try {
         let formData = new FormData();
         formData.append('dadoEncriptado', senhaEncriptada);
         const myInit = {
+            headers: {
+                'Accept': 'application/json'
+            },
             method: 'post',
             body: formData
             //body: new URLSearchParams(formData)
+            //body: JSON.stringify(objectJson)
         };
-        const resPost = await fetch('login.php', myInit);
+        console.log("Senha encriptada enviada ao php nos dados da requisição AJAX: " + senhaEncriptada);
+        const resPost = await fetch('login_ajax.php', myInit);
         const post = await resPost.json();
-        console.log("Resultado Ajax, dado encriptado: " + senhaEncriptada);
-        console.log("Resultado Ajax, dado descriptado: " + post);
+        console.log("Resposta Ajax-> " + post);
     } catch (erro) {
         console.log('Erro.');
     }
@@ -60,9 +65,6 @@ const loginAjaxJsV2_ok = async (senhaEncriptada) => {
 
 btnAcessar.addEventListener('click', () => {
     const senha = document.getElementById('senha').value;
-    const dado = mostrarDadoNormal(senha);
-    const dadoEncriptado = mostrarDadoEncriptado(dado);
-    const dadoDescriptado = mostrarDadoDescriptado(dadoEncriptado);
-    loginAjaxJs(dadoEncriptado);
-    //loginAjaxJquery(dadoEncriptado);
+    const dado = rsa.encrypt(senha);
+    loginAjaxJs(dado);
 })

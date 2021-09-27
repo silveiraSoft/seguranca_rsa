@@ -1,4 +1,5 @@
 <?php
+
 function obterChavePHP(): string
 {
 	if (!isset($_COOKIE["PHPSESSID"]) || !isset($_SESSION['teste'])) {

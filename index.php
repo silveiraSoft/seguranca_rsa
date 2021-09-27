@@ -1,6 +1,8 @@
 <?php
 
-require_once "funcoes.php";
+//require_once "funcoes.php";
+//require_once "enc/encriptar.php";
+require_once __DIR__ . "/enc/encriptar.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,26 +12,23 @@ require_once "funcoes.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="lib/js/rsa/jsbn.js"></script>
+    <script type="text/javascript" src="lib/js/rsa/prng4.js"></script>
+    <script type="text/javascript" src="lib/js/rsa/rng.js"></script>
+    <script type="text/javascript" src="lib/js/rsa/rsa.js"></script>
 </head>
 
 <body>
     <div>
         <?php
-        criarChaveJSPHP();
-        echo "<hr>";
-        $texto = "NÁPOLES";
-        $encriptado = encriptar($texto);
-        echo "<pre>";
-        echo "encriptado {$texto}:" . $encriptado;
-        echo "<pre>";
-        echo "desencriptado:" . descriptar($encriptado);
+        $result = obterChavePrivadaRSA();
+        $teste = 1;
+        extract($result ?? []);
         require_once 'view.login.php';
         ?>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
-    <script type="text/javascript" src="funcoes.js"></script>
-    <script type="text/javascript" src="login.js"></script>
+    </div> 
 
+    <script type="text/javascript" src="login.js"></script>
 </body>
 
 </html>
