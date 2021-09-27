@@ -8,7 +8,6 @@ function obterChavePHP(): string
 	if (!isset($_SESSION['teste'])) {
 		$_SESSION['teste'] = sha1(time()) . sha1(microtime());
 	}
-	//return $_SESSION['teste'];
 	$chavePhp = $_SESSION['teste'] ?? null;
 	return $chavePhp;
 }
