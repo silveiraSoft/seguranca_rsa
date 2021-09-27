@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: application/json');
+ini_set('default_charset', 'utf-8');
 require_once __DIR__ . "/enc/encriptar.php";
 $result = obterChavePrivadaRSA();
 extract($result ?? []);
