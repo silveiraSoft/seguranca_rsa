@@ -17,7 +17,7 @@ const loginAjaxJs = async (senhaEncriptada) => {
         const post = await resPost.json();
         console.log("Resposta Ajax-> " + post);
     } catch (erro) {
-        console.log('Erro.');
+        console.log('Erro na requisição ajax!');
     }
 }
 
@@ -37,30 +37,6 @@ const loginAjaxJquery = async (senhaEncriptada) => {
         }
     });
 }
-
-/*
-const loginAjaxJsV2_ok = async (senhaEncriptada) => {
-    try {
-        let formData = new FormData();
-        formData.append('dadoEncriptado', senhaEncriptada);
-        var myHeaders = new Headers();
-        var myInit = {
-            method: 'post',
-            headers: myHeaders,
-            body: formData,
-            //body: new URLSearchParams(formData)
-            mode: 'cors',
-            cache: 'default'
-        };
-        var myRequest = new Request('login.php', myInit);
-        const resPost = await fetch(myRequest, myInit);
-        const post = await resPost.json();
-        console.log(post);
-    } catch (erro) {
-        console.log('Erro.');
-    }
-}
-*/
 
 btnAcessar.addEventListener('click', () => {
     const senha = document.getElementById('senha').value;

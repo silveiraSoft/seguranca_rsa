@@ -1,6 +1,6 @@
 <script>
     const rsa = new RSAKey();
-    rsa.setPublic('<?php echo to_hex($detalles["rsa"]["n"]) ?>', '<?php echo to_hex($detalles["rsa"]["e"]) ?>');
+    rsa.setPublic('<?php echo to_hex(Seguranca::$detalhes["rsa"]["n"]) ?>', '<?php echo to_hex(Seguranca::$detalhes["rsa"]["e"]) ?>');
 </script>
 <div>
     <label for="login">senha</label> <input type="text" name="senha" id="senha">
